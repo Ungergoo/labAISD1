@@ -1,8 +1,7 @@
 f = open('labtext.txt', 'r')
 massiv = f.read().split()
-massiv2 = []
-k = int(input())
-clearm = []
+massiv2 = []; clearm = []
+k = int(input('Ведите число: '))
 spisok = '0123456789'
 for l in massiv:
     stroku = ''
@@ -17,9 +16,10 @@ for i in range(len(clearm)):
 abc = ('ноль', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять')
 if massiv2 == []:
     print("Таких элементов нет")
+    exit()
 else:
-    minnum = (len(massiv2))
-    print(min(massiv2))
+    minnum = (min(massiv2))
+    print(len(massiv2))
     for j in str(minnum):
         for k in range(10):
             if j == str(k):
