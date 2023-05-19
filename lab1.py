@@ -10,12 +10,12 @@ massiv2 = []; clearm = []
 k = int(input('Ведите число: '))
 spisok = '0123456789'
 for l in massiv:
-    stroku = ''
+    strok = ''
     for o in range(len(l)):
         if (l[o]) in spisok:
-            stroku += l[o]
+            strok += l[o]
     o+=1
-    clearm.append(stroku)
+    clearm.append(strok)
 for i in range(len(clearm)):
     if len(clearm[i]) == k:
         massiv2.append(int(clearm[i]))
