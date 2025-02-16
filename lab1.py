@@ -6,27 +6,28 @@
 #Натуральные числа, содержащие ровно К цифр. Вывести количество таких чисел. Минимальное число вывести прописью.
 f = open('labtext.txt', 'r')
 massiv = f.read().split()
-massiv2 = []; clearm = []
-k = int(input('Ведите число: '))
+massiv2 = []
+clearm = []
+k = int(input('Введите число: '))
 spisok = '0123456789'
+
+num_dict = {
+    '0': 'ноль', '1': 'один', '2': 'два', '3': 'три', '4': 'четыре',
+    '5': 'пять', '6': 'шесть', '7': 'семь', '8': 'восемь', '9': 'девять'
+}
+
 for l in massiv:
-    strok = ''
-    for o in range(len(l)):
-        if (l[o]) in spisok:
-            strok += l[o]
-    o+=1
-    clearm.append(strok)
-for i in range(len(clearm)):
-    if len(clearm[i]) == k:
-        massiv2.append(int(clearm[i]))
-abc = ('ноль', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять')
-if massiv2 == []:
+    if l.isdigit() and l[0] != '0':  
+        clearm.append(l)
+
+for num in clearm:
+    if len(num) == k:
+        massiv2.append(int(num))
+
+if not massiv2:
     print("Таких элементов нет")
-    exit()
 else:
-    minnum = (min(massiv2))
-    print(len(massiv2))
-    for j in str(minnum):
-        for k in range(10):
-            if j == str(k):
-                print(abc[k])
+    minnum = min(massiv2)
+    print("Количество чисел: ", len(massiv2))
+    print("Минимальное число прописью:")
+    print(" ".join(num_dict[j] for j in str(minnum)))
